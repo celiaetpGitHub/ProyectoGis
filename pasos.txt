@@ -1,0 +1,10 @@
+1. $ git config --global user.name "celiaetpGitHub"
+2. $ git config --global user.email "celiaetpGis@gmail.com"
+3. $ ssh-keygen -t rsa -C "git@github.com:celiaetpGitHub/CursoGis.git"
+//Le puse clave 123
+4. /gitconfig --globaluser.name "Celia Tarquino"
+5. /git clone http://github.com/celiaetpGitHub/ProyectoGis
+para subir
+6.
+7.
+8.
