@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -167,10 +167,36 @@
 			);
 			map.setCenter(LonLatTransformado, zoom);
 
+///
+var popup=null;
+var iconImage='ave.png';
+var size=new OpenLayers.Size(30,30);
+var offset=new OpenLayers.Pixel(-(size.w/2),-size.h);
+var marker,iconMarker,LonLat,text;
+text="<div style=’font-size:13px;color:BLACK;font-family:Helvetica'><h5>"+"title"+"<br/>"+"titletwo"+"<br/>"+"description"+""+"place"+"</h5></div>";
+iconMarker=new OpenLayers.Icon(iconImage,size,offset);
+LonLat=new OpenLayers.LonLat(-68.12978,-16.50471).transform(new OpenLayers.Projection("EPSG:4326"), new OpenLayers.Projection(new OpenLayers.Projection("EPSG:900913")));
+marker=new OpenLayers.Marker(LonLat,iconMarker);
+marker.events.register('click',marker,function(){
+popup=new OpenLayers.Popup.FrameCloud("Popup",
+              new OpenLayers.LonLat(-68,12978,-16.50471),transform(new openLayers.Projection("EPSG:4326"),
+new OpenLayers.Projection("EPGS:900913")),null,text,null,true);
+map.addPopup(popup);
+map.setCenter(LonLat,15);
+});
+var markers=new OpenLayers.Layer.Markers("CURSO GIS",
+{ displaylnLayerSwitcher:false,isBaseLayer:false});
+map.addLayer(markers);
+markers.addMarker(marker);
+////
+
 		}
 		// Cargamos la función init, para desplegar el mapa
 		window.onload = init;
-	</script>
+	
+//Para marcadores sobre el mapa
+
+      </script>
 </head>
 <body>
 	<div class="cabecera">
