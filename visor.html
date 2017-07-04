@@ -217,12 +217,12 @@ text="<div style='font-size:13px;color:BLACK;font-family:Helvetica'><h5>"+"title
 
     var popup2=null;
     var size2=new OpenLayers.Size(30,30);
-    var iconImage2='SABALO.png';
-    var offset2=new OpenLayers.Pixel(-(size1.w/2),-size1.h);
+    var iconImage2='sabalo.png';
+    var offset2=new OpenLayers.Pixel(-(size2.w/2),-size2.h);
     var marker2,iconMarker2,LonLat2,text2;
     text1="<div style='font-size:13px;color:BLACK;font-family:Helvetica'><h5>"+"title"+"<br/>"+"titletwo"+"<br/>"+"description"+""+"place"+"</h5></div>";
 
-	iconMarker2=new OpenLayers.Icon(iconImage2,size,offset2);
+	iconMarker2=new OpenLayers.Icon(iconImage2,size2,offset2);
 	LonLat2=new OpenLayers.LonLat(-69.03809,-15.61034).transform(
 		    new OpenLayers.Projection("EPSG:4326"), 
 		    new OpenLayers.Projection(
@@ -509,6 +509,8 @@ map.addLayer(verhors);
 verhors.addMarker(marker_v);
 verhors.addMarker(marker_v1);
 verhors.addMarker(marker_v2);
+
+
 
 	}
 	// Cargamos la función init, para desplegar el mapa

@@ -1,0 +1,180 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Listado de farmacias</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+
+        <style>
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 80%;
+            margin: 0;
+            padding: 0;
+        }
+        </style>
+
+    </head>
+
+    <body>
+    <div id="map"> </div>
+<script type="text/javascript">
+
+            //objeto obra en JS
+            function obraJS(id, nom, lat, lon, resp) {
+                this.idObra = id;
+                this.nomObra = nom;
+                this.latObra = lat;
+                this.lonObra = lon;
+                this.respObra = resp;
+            }
+
+            var vecObrasJS = [];
+
+                    var i = 1 ;
+
+                    var n = "Plaza de Villa Fatima" ;
+                    
+                    var la = "-16.509259" ;
+
+                    var lo = "-68.1469481" ;
+
+                    var resp = "Dr. Revilla" ;
+
+                    var f = new obraJS(i, n, la, lo, resp);
+                    
+                  //  alert ('farmacia : ' + f.idFarma + " - " + f.nomFarma + " - " + f.latFarma + " - " + f.lonFarma + " - " + f.teleFarma);
+
+                    vecObrasJS.push(f);
+                    var i = 2 ;
+
+                    var n = "Embovedado rio Orcojahuira " ;
+                    
+                    var la = "-16.5054912" ;
+
+                    var lo = "-68.1473944" ;
+
+                    var resp = "Dr. Del Granado" ;
+
+                    var f = new obraJS(i, n, la, lo, resp);
+                    
+                  //  alert ('farmacia : ' + f.idFarma + " - " + f.nomFarma + " - " + f.latFarma + " - " + f.lonFarma + " - " + f.teleFarma);
+
+                    vecObrasJS.push(f);
+                    var i = 3 ;
+
+                    var n = "parque San Sebastian" ;
+                    
+                    var la = "-16.4978631" ;
+
+                    var lo = "-68.1299248" ;
+
+                    var resp = "Maclean"                 ;
+
+                    var f = new obraJS(i, n, la, lo, resp);
+                    
+                  //  alert ('farmacia : ' + f.idFarma + " - " + f.nomFarma + " - " + f.latFarma + " - " + f.lonFarma + " - " + f.teleFarma);
+
+                    vecObrasJS.push(f);
+                            
+            alert("elementos en el vector JS " + vecObrasJS.length);
+
+            for (var i = vecObrasJS.length - 1; i >= 0; i--) {
+                alert(vecObrasJS[i].idObra + vecObrasJS[i].nomObra + vecObrasJS[i].latObra + vecObrasJS[i].lonObra + vecObrasJS[i].respObra);
+            }
+
+            
+            //hasta qui tengo un vector en JS con los datos de todas las obras listadas
+
+
+            //aqui comienza el mapa
+
+            function initMap() {
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    center: new google.maps.LatLng(-16.4965409, -68.1362544), // la paz
+                    zoom: 14
+                });
+                var infoWindow = new google.maps.InfoWindow;
+                Array.prototype.forEach.call(vecObrasJS, function(markerElem)
+                {
+                    var id = markerElem.idObra.toString();
+                    var nombre = markerElem.nomObra;
+                    var responsable = "responsable: " + markerElem.respObra;
+                    var point = new google.maps.LatLng(
+                        parseFloat(markerElem.latObra),
+                        parseFloat(markerElem.lonObra)
+                    );
+
+                    var infowincontent = document.createElement('div');
+                    var strong = document.createElement('strong');
+                    strong.textContent = nombre;
+                    infowincontent.appendChild(strong);
+                    infowincontent.appendChild(document.createElement('br'));
+
+                    var text = document.createElement('text');
+                    text.textContent = responsable;
+                    infowincontent.appendChild(text);
+
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: point,
+                        label: id
+                    });
+                    marker.setMap(map);
+                    marker.addListener('click', function() {
+                        infoWindow.setContent(infowincontent);
+                        infoWindow.open(map, marker);
+                    });
+
+                });
+/////
+
+                var infoWindow = new google.maps.InfoWindow;
+                Array.prototype.forEach.call(vecObrasJS, function(markerElem)
+                {
+                    var id = markerElem.idObra.toString();
+                    var nombre = markerElem.nomObra;
+                    var responsable = "responsable: " + markerElem.respObra;
+                    var point = new google.maps.LatLng(
+                        parseFloat(markerElem.latObra),
+                        parseFloat(markerElem.lonObra)
+                    );
+
+                    var infowincontent = document.createElement('div');
+                    var strong = document.createElement('strong');
+                    strong.textContent = nombre;
+                    infowincontent.appendChild(strong);
+                    infowincontent.appendChild(document.createElement('br'));
+
+                    var text = document.createElement('text');
+                    text.textContent = responsable;
+                    infowincontent.appendChild(text);
+
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: point,
+                        label: id
+                    });
+                    marker.setMap(map);
+                    marker.addListener('click', function() {
+                        infoWindow.setContent(infowincontent);
+                        infoWindow.open(map, marker);
+                    });
+
+
+                
+                
+            }
+
+
+        </script>
+         <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBh6BlR0s3eTsTjGdfTrDYhsTOYV8WDd2k&callback=initMap">
+        </script>
+
+    </body>
+</html>
