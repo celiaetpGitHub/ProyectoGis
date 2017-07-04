@@ -133,40 +133,8 @@
                 });
 /////
 
-                var infoWindow = new google.maps.InfoWindow;
-                Array.prototype.forEach.call(vecObrasJS, function(markerElem)
-                {
-                    var id = markerElem.idObra.toString();
-                    var nombre = markerElem.nomObra;
-                    var responsable = "responsable: " + markerElem.respObra;
-                    var point = new google.maps.LatLng(
-                        parseFloat(markerElem.latObra),
-                        parseFloat(markerElem.lonObra)
-                    );
+               
 
-                    var infowincontent = document.createElement('div');
-                    var strong = document.createElement('strong');
-                    strong.textContent = nombre;
-                    infowincontent.appendChild(strong);
-                    infowincontent.appendChild(document.createElement('br'));
-
-                    var text = document.createElement('text');
-                    text.textContent = responsable;
-                    infowincontent.appendChild(text);
-
-                    var marker = new google.maps.Marker({
-                        map: map,
-                        position: point,
-                        label: id
-                    });
-                    marker.setMap(map);
-                    marker.addListener('click', function() {
-                        infoWindow.setContent(infowincontent);
-                        infoWindow.open(map, marker);
-                    });
-
-
-                
                 
             }
 
