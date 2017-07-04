@@ -35,7 +35,7 @@
 			var proyeccion2 = new OpenLayers.Projection("EPSG:4326");
 			var controlNavegacion = new OpenLayers.Control.Navigation();
 			var controlZoom = new OpenLayers.Control.PanZoomBar(); // Zoom
-			var host = "http://192.168.43.69";
+			var host = "http://192.168.56.5";
 			OpenLayers.ProxyHost = "/cgi-bin/proxy.cgi?url=";
 
 			// Propiedades del objeto Map
@@ -87,7 +87,7 @@
 				"Mapa Eólico",
 				host + ":8080/geoserver/wms",
 				{
-					layers: 'curso-gis:EOLICO',
+					layers: 'CursoGis:EOLICO',
 					transparent: true
 				}
 			);
@@ -157,8 +157,9 @@
 			controlInfo.activate();
 
 
-			// Configuración para mostrar la región de Bolivia
-			// Lon: -64.819336, Lat: -17.379999
+			// Configuración para mostrar
+            //la región de Bolivia
+			// Lon: -64.819336, Lat: -17.379999 
 			var LonLat = new OpenLayers.LonLat(-64.819336, -17.379999);
 			var zoom = 5;
 			var LonLatTransformado = LonLat.transform(
@@ -174,24 +175,48 @@ var size=new OpenLayers.Size(30,30);
 var offset=new OpenLayers.Pixel(-(size.w/2),-size.h);
 var marker,iconMarker,LonLat,text;
 text="<div style=’font-size:13px;color:BLACK;font-family:Helvetica'><h5>"+"title"+"<br/>"+"titletwo"+"<br/>"+"description"+""+"place"+"</h5></div>";
-iconMarker=new OpenLayers.Icon(iconImage,size,offset);
-LonLat=new OpenLayers.LonLat(-68.12978,-16.50471).transform(new OpenLayers.Projection("EPSG:4326"), new OpenLayers.Projection(new OpenLayers.Projection("EPSG:900913")));
-marker=new OpenLayers.Marker(LonLat,iconMarker);
-marker.events.register('click',marker,function(){
-popup=new OpenLayers.Popup.FrameCloud("Popup",
-              new OpenLayers.LonLat(-68,12978,-16.50471),transform(new openLayers.Projection("EPSG:4326"),
-new OpenLayers.Projection("EPGS:900913")),null,text,null,true);
-map.addPopup(popup);
-map.setCenter(LonLat,15);
-});
+	iconMarker=new OpenLayers.Icon(iconImage,size,offset);
+	LonLat=new OpenLayers.LonLat(-68.12978,-16.50471).transform(new OpenLayers.Projection("EPSG:4326"), new OpenLayers.Projection(new OpenLayers.Projection("EPSG:900913")));
+	marker=new OpenLayers.Marker(LonLat,iconMarker);
+
+	marker.events.register('click',marker,function(){
+	popup=new OpenLayers.Popup.FrameCloud("Popup",
+	              new OpenLayers.LonLat(-68,12978,-16.50471),transform(new openLayers.Projection("EPSG:4326"),
+	new OpenLayers.Projection("EPGS:900913")),null,text,null,true);
+	map.addPopup(popup);
+	map.setCenter(LonLat,15);
+	});
+
+
+    var popup1=null;
+    var size1=new OpenLayers.Size(30,30);
+    var iconImage1='rojo.png';
+    var offset1=new OpenLayers.Pixel(-(size1.w/2),-size1.h);
+    var marker1,iconMarker1,LonLat1,text1;
+    text1="<div style=’font-size:13px;color:BLACK;font-family:Helvetica'><h5>"+"title"+"<br/>"+"titletwo"+"<br/>"+"description"+""+"place"+"</h5></div>";
+
+	iconMarker1=new OpenLayers.Icon(iconImage,size,offset1);
+	LonLat1=new OpenLayers.LonLat(-63.65039,-17.86584).transform(new OpenLayers.Projection("EPSG:4326"), new OpenLayers.Projection(new OpenLayers.Projection("EPSG:900913")));
+	marker1=new OpenLayers.Marker(LonLat1,iconMarker1);
+	marker1.events.register('click',marker1,function(){
+	popup1=new OpenLayers.Popup.FrameCloud("Popup",
+	              new OpenLayers.LonLat(-63.65039,-17.86584),transform(new openLayers.Projection("EPSG:4326"),
+	new OpenLayers.Projection("EPGS:900913")),null,text1,null,true);
+	map.addPopup(popup1);
+	map.setCenter(LonLat1,19);
+
+	});
+
 var markers=new OpenLayers.Layer.Markers("CURSO GIS",
 { displaylnLayerSwitcher:false,isBaseLayer:false});
 map.addLayer(markers);
 markers.addMarker(marker);
+map.addLayer(markers);
+markers.addMarker(marker1);
 ////
 
 		}
-		// Cargamos la función init, para desplegar el mapa
+	// Cargamos la función init, para desplegar el mapa
 		window.onload = init;
 	
 //Para marcadores sobre el mapa
