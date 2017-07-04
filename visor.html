@@ -22,8 +22,8 @@
 			margin-top: 0;
 		}
 		#mapa{
-			height: 300px;
-			width: 600px;
+			height: 800px;
+			width: 1500px;
 			border: solid 3px darkblue;
 		}
 		
@@ -170,19 +170,23 @@
 
 ///
 var popup=null;
-var iconImage='ave.png';
+var iconImage='vacuno.png';
 var size=new OpenLayers.Size(30,30);
 var offset=new OpenLayers.Pixel(-(size.w/2),-size.h);
 var marker,iconMarker,LonLat,text;
-text="<div style=’font-size:13px;color:BLACK;font-family:Helvetica'><h5>"+"title"+"<br/>"+"titletwo"+"<br/>"+"description"+""+"place"+"</h5></div>";
+text="<div style='font-size:13px;color:BLACK;font-family:Helvetica'><h5>"+"title"+"<br/>"+"titletwo"+"<br/>"+"description"+""+"place"+"</h5></div>";
 	iconMarker=new OpenLayers.Icon(iconImage,size,offset);
-	LonLat=new OpenLayers.LonLat(-68.12978,-16.50471).transform(new OpenLayers.Projection("EPSG:4326"), new OpenLayers.Projection(new OpenLayers.Projection("EPSG:900913")));
+	LonLat=new OpenLayers.LonLat(-68.12978,-16.50471).transform(
+		  new OpenLayers.Projection("EPSG:4326"), 
+		  new OpenLayers.Projection("EPSG:900913"));
 	marker=new OpenLayers.Marker(LonLat,iconMarker);
 
 	marker.events.register('click',marker,function(){
-	popup=new OpenLayers.Popup.FrameCloud("Popup",
-	              new OpenLayers.LonLat(-68,12978,-16.50471),transform(new openLayers.Projection("EPSG:4326"),
-	new OpenLayers.Projection("EPGS:900913")),null,text,null,true);
+	popup=new OpenLayers.Popup.FramedCloud("Popup",
+	              new OpenLayers.LonLat(-68.12978,-16.50471).transform(
+	              new openLayers.Projection("EPSG:4326"),
+	              new OpenLayers.Projection("EPSG:900913")),
+	              null,text,null,true);
 	map.addPopup(popup);
 	map.setCenter(LonLat,15);
 	});
@@ -190,36 +194,326 @@ text="<div style=’font-size:13px;color:BLACK;font-family:Helvetica'><h5>"+"tit
 
     var popup1=null;
     var size1=new OpenLayers.Size(30,30);
-    var iconImage1='rojo.png';
+    var iconImage1='ave.png';
     var offset1=new OpenLayers.Pixel(-(size1.w/2),-size1.h);
     var marker1,iconMarker1,LonLat1,text1;
-    text1="<div style=’font-size:13px;color:BLACK;font-family:Helvetica'><h5>"+"title"+"<br/>"+"titletwo"+"<br/>"+"description"+""+"place"+"</h5></div>";
+    text1="<div style='font-size:13px;color:BLACK;font-family:Helvetica'><h5>"+"title"+"<br/>"+"titletwo"+"<br/>"+"description"+""+"place"+"</h5></div>";
 
-	iconMarker1=new OpenLayers.Icon(iconImage,size,offset1);
-	LonLat1=new OpenLayers.LonLat(-63.65039,-17.86584).transform(new OpenLayers.Projection("EPSG:4326"), new OpenLayers.Projection(new OpenLayers.Projection("EPSG:900913")));
+	iconMarker1=new OpenLayers.Icon(iconImage1,size,offset1);
+	LonLat1=new OpenLayers.LonLat(-63.65039,-17.86584).transform(
+		    new OpenLayers.Projection("EPSG:4326"), 
+		    new OpenLayers.Projection(
+		    new OpenLayers.Projection("EPSG:900913")));
 	marker1=new OpenLayers.Marker(LonLat1,iconMarker1);
 	marker1.events.register('click',marker1,function(){
-	popup1=new OpenLayers.Popup.FrameCloud("Popup",
-	              new OpenLayers.LonLat(-63.65039,-17.86584),transform(new openLayers.Projection("EPSG:4326"),
-	new OpenLayers.Projection("EPGS:900913")),null,text1,null,true);
+	popup1=new OpenLayers.Popup.FramedCloud("Popup",
+	              new OpenLayers.LonLat(-63.65039,-17.86584).transform(
+	              new openLayers.Projection("EPSG:4326"),
+	new OpenLayers.Projection("EPSG:900913")),null,text1,null,true);
 	map.addPopup(popup1);
 	map.setCenter(LonLat1,19);
 
 	});
 
-var markers=new OpenLayers.Layer.Markers("CURSO GIS",
+    var popup2=null;
+    var size2=new OpenLayers.Size(30,30);
+    var iconImage2='SABALO.png';
+    var offset2=new OpenLayers.Pixel(-(size1.w/2),-size1.h);
+    var marker2,iconMarker2,LonLat2,text2;
+    text1="<div style='font-size:13px;color:BLACK;font-family:Helvetica'><h5>"+"title"+"<br/>"+"titletwo"+"<br/>"+"description"+""+"place"+"</h5></div>";
+
+	iconMarker2=new OpenLayers.Icon(iconImage2,size,offset2);
+	LonLat2=new OpenLayers.LonLat(-69.03809,-15.61034).transform(
+		    new OpenLayers.Projection("EPSG:4326"), 
+		    new OpenLayers.Projection(
+		    new OpenLayers.Projection("EPSG:900913")));
+	marker2=new OpenLayers.Marker(LonLat2,iconMarker2);
+	marker2.events.register('click',marker2,function(){
+	popup2=new OpenLayers.Popup.FramedCloud("Popup",
+	              new OpenLayers.LonLat(-69.03809,-15.61034).transform(
+	              new openLayers.Projection("EPSG:4326"),
+	new OpenLayers.Projection("EPSG:900913")),null,text2,null,true);
+	map.addPopup(popup2);
+	map.setCenter(LonLat2,19);
+
+	});
+
+    var popup3=null;
+    var size3=new OpenLayers.Size(30,30);
+    var iconImage3='PORCINO.png';
+    var offset3=new OpenLayers.Pixel(-(size3.w/2),-size3.h);
+    var marker3,iconMarker3,LonLat3,text3;
+    text1="<div style='font-size:13px;color:BLACK;font-family:Helvetica'><h5>"+"title"+"<br/>"+"titletwo"+"<br/>"+"description"+""+"place"+"</h5></div>";
+
+	iconMarker3=new OpenLayers.Icon(iconImage3,size,offset3);
+	LonLat3=new OpenLayers.LonLat(-63.14941,-18.46711).transform(
+		    new OpenLayers.Projection("EPSG:4326"), 
+		    new OpenLayers.Projection(
+		    new OpenLayers.Projection("EPSG:900913")));
+	marker3=new OpenLayers.Marker(LonLat3,iconMarker3);
+	marker3.events.register('click',marker3,function(){
+	popup3=new OpenLayers.Popup.FramedCloud("Popup",
+	              new OpenLayers.LonLat(-63.14941,-18.46711).transform(
+	              new openLayers.Projection("EPSG:4326"),
+	new OpenLayers.Projection("EPSG:900913")),null,text2,null,true);
+	map.addPopup(popup3);
+	map.setCenter(LonLat3,19);
+
+	});
+
+    var popup4=null;
+    var size4=new OpenLayers.Size(30,30);
+    var iconImage4='AVICOLA.png';
+    var offset4=new OpenLayers.Pixel(-(size4.w/2),-size4.h);
+    var marker4,iconMarker4,LonLat4,text4;
+    text1="<div style='font-size:13px;color:BLACK;font-family:Helvetica'><h5>"+"title"+"<br/>"+"titletwo"+"<br/>"+"description"+""+"place"+"</h5></div>";
+
+	iconMarker4=new OpenLayers.Icon(iconImage4,size,offset4);
+	LonLat4=new OpenLayers.LonLat(-64.68750,-17.79890).transform(
+		    new OpenLayers.Projection("EPSG:4326"), 
+		    new OpenLayers.Projection(
+		    new OpenLayers.Projection("EPSG:900913")));
+	marker4=new OpenLayers.Marker(LonLat4,iconMarker4);
+	marker4.events.register('click',marker4,function(){
+	popup4=new OpenLayers.Popup.FramedCloud("Popup",
+	              new OpenLayers.LonLat(-64.68750,-17.79890).transform(
+	              new openLayers.Projection("EPSG:4326"),
+	new OpenLayers.Projection("EPSG:900913")),null,text4,null,true);
+	map.addPopup(popup4);
+	map.setCenter(LonLat4,19);
+
+	});
+var popup5=null;
+var iconImage5='LLAMA.png';
+var size5=new OpenLayers.Size(30,30);
+var offset5=new OpenLayers.Pixel(-(size5.w/2),-size5.h);
+var marker5,iconMarker5,LonLat5,text5;
+text="<div style='font-size:13px;color:BLACK;font-family:Helvetica'><h5>"+"title"+"<br/>"+"titletwo"+"<br/>"+"description"+""+"place"+"</h5></div>";
+	iconMarker5=new OpenLayers.Icon(iconImage5,size5,offset5);
+	LonLat5=new OpenLayers.LonLat( -68.888084,-18.193460).transform(
+		  new OpenLayers.Projection("EPSG:4326"), 
+		  new OpenLayers.Projection("EPSG:900913"));
+	marker5=new OpenLayers.Marker(LonLat5,iconMarker5);
+
+	marker5.events.register('click',marker5,function(){
+	popup5=new OpenLayers.Popup.FramedCloud("Popup",
+	              new OpenLayers.LonLat(-68.888084,-18.193460).transform(
+	              new openLayers.Projection("EPSG:4326"),
+	              new OpenLayers.Projection("EPSG:900913")),
+	              null,text_f,null,true);
+	map.addPopup(popup5);
+	map.setCenter(LonLat5,15);
+	});
+
+
+var markers=new OpenLayers.Layer.Markers("CARNE-FUENTES DE PRODUCCION ALIMENTARIA",
 { displaylnLayerSwitcher:false,isBaseLayer:false});
 map.addLayer(markers);
 markers.addMarker(marker);
-map.addLayer(markers);
 markers.addMarker(marker1);
-////
+markers.addMarker(marker2);
+markers.addMarker(marker3);
+markers.addMarker(marker4);
+markers.addMarker(marker5);
 
-		}
+///////////////
+
+var popup_f=null;
+var iconImage_f='mandarina.png';
+var size_f=new OpenLayers.Size(30,30);
+var offset_f=new OpenLayers.Pixel(-(size_f.w/2),-size_f.h);
+var marker_f,iconMarker_f,LonLat_f,text_f;
+text="<div style='font-size:13px;color:BLACK;font-family:Helvetica'><h5>"+"title"+"<br/>"+"titletwo"+"<br/>"+"description"+""+"place"+"</h5></div>";
+	iconMarker_f=new OpenLayers.Icon(iconImage_f,size_f,offset_f);
+	LonLat_f=new OpenLayers.LonLat(-67.719065,-16.012167).transform(
+		  new OpenLayers.Projection("EPSG:4326"), 
+		  new OpenLayers.Projection("EPSG:900913"));
+	marker_f=new OpenLayers.Marker(LonLat_f,iconMarker_f);
+
+	marker_f.events.register('click',marker_f,function(){
+	popup_f=new OpenLayers.Popup.FramedCloud("Popup",
+	              new OpenLayers.LonLat(-67.719065,-16.012167).transform(
+	              new openLayers.Projection("EPSG:4326"),
+	              new OpenLayers.Projection("EPSG:900913")),
+	              null,text_f,null,true);
+	map.addPopup(popup_f);
+	map.setCenter(LonLat_f,15);
+	});
+
+var popup_f1=null;
+var iconImage_f1='pinA.png';
+var size_f1=new OpenLayers.Size(30,30);
+var offset_f1=new OpenLayers.Pixel(-(size_f1.w/2),-size_f1.h);
+var marker_f1,iconMarker_f1,LonLat_f1,text_f1;
+text="<div style='font-size:13px;color:BLACK;font-family:Helvetica'><h5>"+"title"+"<br/>"+"titletwo"+"<br/>"+"description"+""+"place"+"</h5></div>";
+	iconMarker_f1=new OpenLayers.Icon(iconImage_f1,size_f1,offset_f1);
+	LonLat_f1=new OpenLayers.LonLat(-64.83398,-15.93457).transform(
+		  new OpenLayers.Projection("EPSG:4326"), 
+		  new OpenLayers.Projection("EPSG:900913"));
+	marker_f1=new OpenLayers.Marker(LonLat_f1,iconMarker_f1);
+
+	marker_f1.events.register('click',marker_f1,function(){
+	popup_f1=new OpenLayers.Popup.FramedCloud("Popup",
+	              new OpenLayers.LonLat(-64.83398,-15.93457).transform(
+	              new openLayers.Projection("EPSG:-64.83398,-15934574326"),
+	              new OpenLayers.Projection("EPSG:900913")),
+	              null,text_f1,null,true);
+	map.addPopup(popup_f1);
+	map.setCenter(LonLat_f1,15);
+	});
+
+var popup_f2=null;
+var iconImage_f2='manzana.png';
+var size_f2=new OpenLayers.Size(30,30);
+var offset_f2=new OpenLayers.Pixel(-(size_f1.w/2),-size_f1.h);
+var marker_f2,iconMarker_f2,LonLat_f2,text_f2;
+text="<div style='font-size:13px;color:BLACK;font-family:Helvetica'><h5>"+"title"+"<br/>"+"titletwo"+"<br/>"+"description"+""+"place"+"</h5></div>";
+	iconMarker_f2=new OpenLayers.Icon(iconImage_f2,size_f2,offset_f2);
+	LonLat_f2=new OpenLayers.LonLat(-64.36523,-21.65879).transform(
+		  new OpenLayers.Projection("EPSG:4326"), 
+		  new OpenLayers.Projection("EPSG:900913"));
+	marker_f2=new OpenLayers.Marker(LonLat_f2,iconMarker_f2);
+
+	marker_f2.events.register('click',marker_f2,function(){
+	popup_f2=new OpenLayers.Popup.FramedCloud("Popup",
+	              new OpenLayers.LonLat(-64.36523,-21.65879).transform(
+	              new openLayers.Projection("EPSG:-64.83398,-15934574326"),
+	              new OpenLayers.Projection("EPSG:900913")),
+	              null,text_f2,null,true);
+	map.addPopup(popup_f2);
+	map.setCenter(LonLat_f2,15);
+	});
+
+var popup_f3=null;
+var iconImage_f3='platano.png';
+var size_f3=new OpenLayers.Size(30,30);
+var offset_f3=new OpenLayers.Pixel(-(size_f3.w/2),-size_f3.h);
+var marker_f3,iconMarker_f3,LonLat_f3,text_f3;
+text="<div style='font-size:13px;color:BLACK;font-family:Helvetica'><h5>"+"title"+"<br/>"+"titletwo"+"<br/>"+"description"+""+"place"+"</h5></div>";
+	iconMarker_f3=new OpenLayers.Icon(iconImage_f3,size_f3,offset_f3);
+	LonLat_f3=new OpenLayers.LonLat(-68.08594,-16.16685).transform(
+		  new OpenLayers.Projection("EPSG:4326"), 
+		  new OpenLayers.Projection("EPSG:900913"));
+	marker_f3=new OpenLayers.Marker(LonLat_f3,iconMarker_f3);
+
+	marker_f3.events.register('click',marker_f3,function(){
+	popup_f3=new OpenLayers.Popup.FramedCloud("Popup",
+	              new OpenLayers.LonLat(-68.08594,-16.16685).transform(
+	              new openLayers.Projection("EPSG:-64.83398,-15934574326"),
+	              new OpenLayers.Projection("EPSG:900913")),
+	              null,text_f3,null,true);
+	map.addPopup(popup_f3);
+	map.setCenter(LonLat_f3,15);
+	});
+
+var popup_f4=null;
+var iconImage_f4='UVA.png';
+var size_f4=new OpenLayers.Size(30,30);
+var offset_f4=new OpenLayers.Pixel(-(size_f4.w/2),-size_f4.h);
+var marker_f4,iconMarker_f4,LonLat_f4,text_f4;
+text="<div style='font-size:13px;color:BLACK;font-family:Helvetica'><h5>"+"title"+"<br/>"+"titletwo"+"<br/>"+"description"+""+"place"+"</h5></div>";
+	iconMarker_f4=new OpenLayers.Icon(iconImage_f4,size_f4,offset_f4);
+	LonLat_f4=new OpenLayers.LonLat(-62.77222,-21.40330).transform(
+		  new OpenLayers.Projection("EPSG:4326"), 
+		  new OpenLayers.Projection("EPSG:900913"));
+	marker_f4=new OpenLayers.Marker(LonLat_f4,iconMarker_f4);
+
+	marker_f4.events.register('click',marker_f4,function(){
+	popup_f4=new OpenLayers.Popup.FramedCloud("Popup",
+	              new OpenLayers.LonLat(-64.36523,-21.65879).transform(
+	              new openLayers.Projection("EPSG:-64.83398,-15934574326"),
+	              new OpenLayers.Projection("EPSG:900913")),
+	              null,text_f4,null,true);
+	map.addPopup(popup_f4);
+	map.setCenter(LonLat_f4,15);
+	});
+
+var frutas=new OpenLayers.Layer.Markers("FRUTAS-FUENTES DE PRODUCCION ALIMENTARIA",
+{ displaylnLayerSwitcher:false,isBaseLayer:false});
+map.addLayer(frutas);
+frutas.addMarker(marker_f);
+frutas.addMarker(marker_f1);
+frutas.addMarker(marker_f2);
+frutas.addMarker(marker_f3);
+frutas.addMarker(marker_f4);
+	
+
+var popup_v=null;
+var iconImage_v='acelga.png';
+var size_v=new OpenLayers.Size(30,30);
+var offset_v=new OpenLayers.Pixel(-(size_v.w/2),-size_v.h);
+var marker_v,iconMarker_v,LonLat_v,text_v;
+text="<div style='font-size:13px;color:BLACK;font-family:Helvetica'><h5>"+"title"+"<br/>"+"titletwo"+"<br/>"+"description"+""+"place"+"</h5></div>";
+	iconMarker_v=new OpenLayers.Icon(iconImage_v,size_v,offset_v);
+	LonLat_v=new OpenLayers.LonLat(-66.07361,-17.71889).transform(
+		  new OpenLayers.Projection("EPSG:4326"), 
+		  new OpenLayers.Projection("EPSG:900913"));
+	marker_v=new OpenLayers.Marker(LonLat_v,iconMarker_v);
+
+	marker_v.events.register('click',marker_v,function(){
+	popup_v=new OpenLayers.Popup.FramedCloud("Popup",
+	              new OpenLayers.LonLat(-66.07361,-17.71889).transform(
+	              new openLayers.Projection("EPSG:4326"),
+	              new OpenLayers.Projection("EPSG:900913")),
+	              null,text_v,null,true);
+	map.addPopup(popup_v);
+	map.setCenter(LonLat_v,15);
+	});
+
+var popup_v1=null;
+var iconImage_v1='REPOLLO.png';
+var size_v1=new OpenLayers.Size(30,30);
+var offset_v1=new OpenLayers.Pixel(-(size_v1.w/2),-size_v1.h);
+var marker_v1,iconMarker_v1,LonLat_v1,text_v1;  
+text="<div style='font-size:13px;color:BLACK;font-family:Helvetica'><h5>"+"title"+"<br/>"+"titletwo"+"<br/>"+"description"+""+"place"+"</h5></div>";
+	iconMarker_v1=new OpenLayers.Icon(iconImage_v1,size_v1,offset_v1);
+	LonLat_v1=new OpenLayers.LonLat(-61.99951,-18.89035).transform(
+		  new OpenLayers.Projection("EPSG:4326"), 
+		  new OpenLayers.Projection("EPSG:900913"));
+	marker_v1=new OpenLayers.Marker(LonLat_v1,iconMarker_v1);
+
+	marker_v1.events.register('click',marker_v1,function(){
+	popup_v1=new OpenLayers.Popup.FramedCloud("Popup",
+	              new OpenLayers.LonLat(-61.99951,-18.89035).transform(
+	              new openLayers.Projection("EPSG:4326"),
+	              new OpenLayers.Projection("EPSG:900913")),
+	              null,text_v,null,true);
+	map.addPopup(popup_v1);
+	map.setCenter(LonLat_v1,15);
+	});
+
+var popup_v2=null;
+var iconImage_v2='papA.png';
+var size_v2=new OpenLayers.Size(30,30);
+var offset_v2=new OpenLayers.Pixel(-(size_v2.w/2),-size_v2.h);
+var marker_v2,iconMarker_v2,LonLat_v2,text_v2;  
+text="<div style='font-size:13px;color:BLACK;font-family:Helvetica'><h5>"+"title"+"<br/>"+"titletwo"+"<br/>"+"description"+""+"place"+"</h5></div>";
+	iconMarker_v2=new OpenLayers.Icon(iconImage_v2,size_v2,offset_v2);
+	LonLat_v2=new OpenLayers.LonLat(-67.88086,-16.89801).transform(
+		  new OpenLayers.Projection("EPSG:4326"), 
+		  new OpenLayers.Projection("EPSG:900913"));
+	marker_v2=new OpenLayers.Marker(LonLat_v2,iconMarker_v2);
+
+	marker_v2.events.register('click',marker_v2,function(){
+	popup_v2=new OpenLayers.Popup.FramedCloud("Popup",
+	              new OpenLayers.LonLat(-67.88086,-16.89801).transform(
+	              new openLayers.Projection("EPSG:4326"),
+	              new OpenLayers.Projection("EPSG:900913")),
+	              null,text_v2,null,true);
+	map.addPopup(popup_v2);
+	map.setCenter(LonLat_v2,15);
+	});
+var verhors=new OpenLayers.Layer.Markers("VERDURAS HORTALIZAS-FUENTES DE PRODUCCION ALIMENTARIA",
+{ displaylnLayerSwitcher:false,isBaseLayer:false});
+map.addLayer(verhors);
+verhors.addMarker(marker_v);
+verhors.addMarker(marker_v1);
+verhors.addMarker(marker_v2);
+
+	}
 	// Cargamos la función init, para desplegar el mapa
 		window.onload = init;
 	
-//Para marcadores sobre el mapa
 
       </script>
 </head>
